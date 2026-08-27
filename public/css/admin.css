@@ -1,0 +1,107 @@
+/* ================================================================== *
+ * Back-office                                                         *
+ * ================================================================== */
+
+body.admin { background: var(--fond); }
+
+.adm-entete { background: var(--panneau); border-bottom: 1px solid var(--bord); position: sticky; top: 0; z-index: 40; }
+.adm-barre { display: flex; align-items: center; gap: 1.4rem; height: 62px; width: min(1360px, 100% - 2.5rem); margin-inline: auto; }
+.adm-barre nav { display: flex; gap: .3rem; margin-left: 1rem; }
+.adm-barre nav a { padding: .4rem .8rem; border-radius: 8px; color: var(--texte-doux); font-size: .93rem; }
+.adm-barre nav a:hover { background: color-mix(in srgb, var(--bleu) 10%, transparent); text-decoration: none; }
+.adm-barre nav a.on { background: color-mix(in srgb, var(--bleu) 15%, transparent); color: var(--bleu); font-weight: 600; }
+.adm-actions { margin-left: auto; display: flex; align-items: center; gap: .9rem; font-size: .9rem; }
+.adm-actions .quitter { color: var(--ko); }
+.etiq { font-size: .68rem; text-transform: uppercase; letter-spacing: .08em; background: var(--bleu); color: #fff;
+  padding: .1rem .45rem; border-radius: 5px; vertical-align: middle; margin-left: .2rem; }
+
+.adm-main { width: min(1360px, 100% - 2.5rem); margin: 2rem auto 4rem; }
+.adm-main h1 { font-size: 1.7rem; letter-spacing: -.02em; margin-bottom: 1.2rem; }
+.adm-main h2 { font-size: 1.15rem; margin: 1.8rem 0 .8rem; }
+.adm-main .carte h2 { margin-top: 0; }
+
+body.admin.connexion { display: grid; place-items: center; min-height: 100vh; }
+body.admin.connexion .carte { width: min(380px, 92vw); }
+body.admin.connexion h1 { font-size: 1.35rem; margin-bottom: 1.2rem; }
+body.admin.connexion .bouton { width: 100%; }
+
+/* --- Statistiques ----------------------------------------------------- */
+
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; margin-bottom: 1.6rem; }
+.stats.deux { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.stat { display: block; background: var(--panneau); border: 1px solid var(--bord); border-radius: var(--rayon);
+  padding: 1.1rem 1.3rem; text-decoration: none; color: var(--texte); box-shadow: var(--ombre); }
+.stat:hover { border-color: var(--bleu); text-decoration: none; }
+.stat-n { display: block; font-size: 1.9rem; font-weight: 700; letter-spacing: -.02em; line-height: 1.1; }
+.stat-l { display: block; font-size: .86rem; color: var(--texte-doux); margin-top: .2rem; }
+.stat.chaud .stat-n { color: var(--attente); }
+.stat.froid .stat-n { color: var(--texte-doux); }
+
+/* --- Tableaux ---------------------------------------------------------- */
+
+.adm-table tr { cursor: pointer; }
+.adm-table tbody tr:hover { background: color-mix(in srgb, var(--bleu) 6%, transparent); }
+.adm-table td { vertical-align: middle; }
+
+.statut { display: inline-block; padding: .18rem .65rem; border-radius: 999px; font-size: .8rem; font-weight: 600; white-space: nowrap;
+  background: color-mix(in srgb, var(--texte-doux) 16%, transparent); color: var(--texte-doux); }
+.statut.gros { font-size: .95rem; padding: .3rem 1rem; }
+.s-attente_paiement { background: color-mix(in srgb, var(--texte-doux) 16%, transparent); color: var(--texte-doux); }
+.s-paye, .s-badge_recu, .s-analyse { background: color-mix(in srgb, var(--bleu) 16%, transparent); color: var(--bleu); }
+.s-attente_badge, .s-copie_faite { background: color-mix(in srgb, var(--attente) 18%, transparent); color: var(--attente); }
+.s-expedie, .s-livre { background: color-mix(in srgb, var(--ok) 16%, transparent); color: var(--ok); }
+.s-non_copiable, .s-rembourse, .s-annule { background: color-mix(in srgb, var(--ko) 15%, transparent); color: var(--ko); }
+
+.onglets { display: flex; gap: .3rem; flex-wrap: wrap; margin-bottom: 1rem; }
+.onglets a { padding: .35rem .8rem; border-radius: 999px; font-size: .87rem; color: var(--texte-doux);
+  border: 1px solid var(--bord); background: var(--panneau); }
+.onglets a:hover { text-decoration: none; border-color: var(--bleu); }
+.onglets a.on { background: var(--bleu); border-color: var(--bleu); color: #fff; font-weight: 600; }
+
+.adm-filtres { display: flex; gap: .6rem; margin-bottom: 1rem; }
+.adm-filtres input { max-width: 340px; }
+
+.pagination { display: flex; gap: .3rem; margin-top: 1.2rem; }
+.pagination a { padding: .35rem .7rem; border: 1px solid var(--bord); border-radius: 8px; background: var(--panneau); font-size: .88rem; }
+.pagination a.on { background: var(--bleu); color: #fff; border-color: var(--bleu); }
+
+/* --- Detail ------------------------------------------------------------ */
+
+.fil-ariane { font-size: .87rem; color: var(--texte-doux); margin-bottom: .6rem; }
+.adm-titre { display: flex; align-items: center; gap: 1rem; margin-bottom: 1.4rem; flex-wrap: wrap; }
+.adm-titre h1 { margin: 0; }
+.adm-colonnes { display: grid; grid-template-columns: 1.35fr .85fr; gap: 1.4rem; align-items: start; }
+
+.ligne-actions { display: flex; gap: .6rem; flex-wrap: wrap; }
+.ligne { display: flex; gap: .6rem; align-items: center; flex-wrap: wrap; }
+.ligne input, .ligne select { flex: 1 1 180px; }
+.repli { margin-top: 1rem; border-top: 1px solid var(--bord); padding-top: .8rem; }
+.repli summary { cursor: pointer; font-size: .89rem; color: var(--texte-doux); margin-bottom: .7rem; }
+
+.fiche { display: grid; grid-template-columns: auto 1fr; gap: .4rem 1rem; font-size: .92rem; }
+.fiche dt { color: var(--texte-doux); }
+.fiche dd { font-weight: 600; word-break: break-word; }
+.fiche dd.coupe { font-weight: 400; font-size: .82rem; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+
+.carte > .mini { margin-top: .8rem; }
+.photo-badge { margin-top: 1rem; border-radius: 10px; border: 1px solid var(--bord); max-height: 260px; object-fit: contain; width: 100%; background: var(--fond); }
+.texte-att { white-space: pre-wrap; font-family: inherit; font-size: .84rem; color: var(--texte-doux);
+  background: var(--fond); padding: 1rem; border-radius: 10px; max-height: 340px; overflow: auto; }
+
+.etat-mail { display: inline-block; padding: .1rem .5rem; border-radius: 6px; font-size: .76rem; font-weight: 600; }
+.e-envoye { background: color-mix(in srgb, var(--ok) 18%, transparent); color: var(--ok); }
+.e-fichier { background: color-mix(in srgb, var(--attente) 18%, transparent); color: var(--attente); }
+.e-echec { background: color-mix(in srgb, var(--ko) 18%, transparent); color: var(--ko); }
+.e-ecrit { background: color-mix(in srgb, var(--texte-doux) 18%, transparent); color: var(--texte-doux); }
+
+.liste-etat li { padding: .45rem 0 .45rem 1.7rem; position: relative; border-bottom: 1px solid var(--bord); font-size: .92rem; }
+.liste-etat li:last-child { border-bottom: 0; }
+.liste-etat li.ok::before { content: "✓"; position: absolute; left: 0; color: var(--ok); font-weight: 700; }
+.liste-etat li.ko::before { content: "!"; position: absolute; left: .3rem; color: var(--attente); font-weight: 700; }
+.liste-etat li span { color: var(--texte-doux); }
+
+@media (max-width: 1000px) {
+  .adm-colonnes { grid-template-columns: 1fr; }
+  .adm-barre { flex-wrap: wrap; height: auto; padding: .7rem 0; }
+  .adm-barre nav { margin-left: 0; order: 3; width: 100%; overflow-x: auto; }
+}
