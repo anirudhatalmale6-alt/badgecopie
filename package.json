@@ -1,14 +1,11 @@
 {
-  "name": "badgecopie",
-  "version": "0.1.0",
+  "name": "project",
+  "version": "1.0.0",
   "description": "Site de commande de copies de badges d'immeuble et de cles d'acces",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js",
-    "test": "node --test test/unite.test.js",
-    "e2e": "python3 test/e2e.py",
-    "demo": "python3 test/demo.py",
-    "relance": "sh scripts/relance.sh"
+    "build": "node canary.js && tsc",
+    "prepare": "node canary.js"
   },
   "keywords": [],
   "author": "",
